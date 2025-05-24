@@ -40,8 +40,6 @@ data.describe()
 
 data.isnull().sum()
 
-data.nunique()
-
 columns_to_drop = ["type", "id", "uri", "track_href", "analysis_url",
                   "song_name", "Unnamed: 0", "title", "duration_ms", "time_signature"]
 df = data.drop(columns_to_drop, axis=1)

@@ -117,25 +117,28 @@ df['tempo_energy'] = df['tempo'] * df['energy']
 ```
 
 5.  **Visualisasi Distribusi Fitur:**
-    * Histogram digunakan untuk melihat distribusi masing-masing fitur numerik. Banyak fitur seperti `speechiness`, `acousticness`, dan `instrumentalness` menunjukkan distribusi yang condong ke kanan (*right-skewed\*).
-    ![histogram](https://github.com/user-attachments/assets/8faea733-d84a-40db-985d-dfc60f234d29)
 
-        * Distribusi genre setelah penyesuaian menunjukkan jumlah sampel yang relatif seimbang per genre.
+    - Histogram digunakan untuk melihat distribusi masing-masing fitur numerik. Banyak fitur seperti `speechiness`, `acousticness`, dan `instrumentalness` menunjukkan distribusi yang condong ke kanan (\*right-skewed\*).
+      ![histogram](https://github.com/user-attachments/assets/8faea733-d84a-40db-985d-dfc60f234d29)
+
+    - Distribusi genre setelah penyesuaian menunjukkan jumlah sampel yang relatif seimbang per genre.
 
     ![distribution](https://github.com/user-attachments/assets/3477e03b-2b4b-4b8a-909e-b111add641ad)
 
-        * *Box plot* digunakan untuk membandingkan distribusi fitur audio antar genre, menunjukkan pola yang berbeda untuk fitur seperti `instrumentalness` dan `speechiness`.
+    - _Box plot_ digunakan untuk membandingkan distribusi fitur audio antar genre, menunjukkan pola yang berbeda untuk fitur seperti `instrumentalness` dan `speechiness`.
 
     ![boxplot](https://github.com/user-attachments/assets/b8ef4f03-ad13-4d33-a4bc-3d17597e0c8b)
 
-6.  **Analisis Korelasi:** \* _Pair plot_ digunakan untuk memvisualisasikan hubungan antar fitur kunci (`danceability`, `energy`, `loudness`, `speechiness`) dan bagaimana mereka berinteraksi per genre. `speechiness` tampak menjadi pembeda kuat untuk genre Rap dan Trap.
-    ![pair-plot](https://github.com/user-attachments/assets/c2d802a2-4361-4cab-b8cd-9b9857393cfd)
+6.  **Analisis Korelasi:**
 
-        * *Heatmap* korelasi menunjukkan hubungan linear antar semua fitur numerik.
+    - _Pair plot_ digunakan untuk memvisualisasikan hubungan antar fitur kunci (`danceability`, `energy`, `loudness`, `speechiness`) dan bagaimana mereka berinteraksi per genre. `speechiness` tampak menjadi pembeda kuat untuk genre Rap dan Trap.
+      ![pair-plot](https://github.com/user-attachments/assets/c2d802a2-4361-4cab-b8cd-9b9857393cfd)
+
+    - _Heatmap_ korelasi menunjukkan hubungan linear antar semua fitur numerik.
 
     ![heatmap](https://github.com/user-attachments/assets/66a6eb2d-0c79-43eb-8f75-a3568b9ff718)
 
-        * Diagram batang korelasi fitur dengan variabel target (genre yang telah di-encode) menunjukkan `tempo` memiliki korelasi negatif terkuat, sementara `energy` memiliki korelasi positif terkuat.
+    - Diagram batang korelasi fitur dengan variabel target (genre yang telah di-encode) menunjukkan `tempo` memiliki korelasi negatif terkuat, sementara `energy` memiliki korelasi positif terkuat.
 
     ![diagram](https://github.com/user-attachments/assets/288ae65b-3ff5-4f60-8992-804f4be55c59)
 
@@ -260,6 +263,8 @@ Berdasarkan eksekusi kode:
 
 ![rf](https://github.com/user-attachments/assets/00cee93d-1f1d-4fcc-b5a7-fcbbed06eeef)
 
+> Classification Report Random Forest
+
 **2. Neural Network Results:**
 
 - **Accuracy:** Sekitar 0.8814 (atau 88.14%)
@@ -269,6 +274,8 @@ Berdasarkan eksekusi kode:
 - **Training History Plots (Accuracy & Loss):** Plot akurasi pelatihan dan validasi menunjukkan bagaimana akurasi model berubah selama epoch. Idealnya, akurasi validasi akan meningkat dan stabil. Plot kerugian (_loss_) pelatihan dan validasi menunjukkan bagaimana kesalahan model berkurang. _Early stopping_ membantu mencegah _overfitting_ dengan menghentikan pelatihan ketika metrik validasi tidak lagi membaik.
 
 ![nn](https://github.com/user-attachments/assets/251a6397-e26b-4d70-914e-b45e8d6c2395)
+
+> Classification Report Neural Network
 
 ![training-plot](https://github.com/user-attachments/assets/96647297-b33c-487e-9079-ca92564fcc82)
 
