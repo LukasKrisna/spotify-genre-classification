@@ -1,5 +1,7 @@
 # Laporan Proyek Machine Learning - Klasifikasi Genre Musik Spotify
 
+#### Disusun oleh: Lukas Krisna
+
 ## Domain Proyek
 
 Industri musik digital telah mengalami pertumbuhan eksponensial, dengan platform streaming seperti Spotify menyediakan akses ke puluhan juta lagu. Dalam katalog musik yang begitu luas, genre musik berfungsi sebagai deskriptor fundamental yang membantu dalam organisasi, penemuan, dan personalisasi rekomendasi musik. Klasifikasi genre musik secara otomatis menjadi krusial untuk mengelola basis data musik skala besar ini secara efisien dan meningkatkan pengalaman pengguna. Proses ini melibatkan analisis fitur audio yang diekstrak dari lagu untuk melatih model _machine learning_ yang dapat memprediksi genre sebuah lagu.
@@ -118,14 +120,15 @@ df['tempo_energy'] = df['tempo'] * df['energy']
 
 5.  **Visualisasi Distribusi Fitur:**
 
-    - Histogram digunakan untuk melihat distribusi masing-masing fitur numerik. Banyak fitur seperti `speechiness`, `acousticness`, dan `instrumentalness` menunjukkan distribusi yang condong ke kanan (\*right-skewed\*).
+    - Histogram digunakan untuk melihat distribusi masing-masing fitur numerik. Banyak fitur seperti `speechiness`, `acousticness`, dan `instrumentalness` menunjukkan distribusi yang condong ke kanan (_right-skewed_), menunjukkan mayoritas lagu memiliki nilai rendah pada fitur-fitur ini, sementara fitur seperti danceability, energy, dan loudness menunjukkan distribusi yang lebih simetris atau sedikit condong. Fitur-fitur baru yang diciptakan, seperti energy_danceability, umumnya mencerminkan karakteristik distribusi dari fitur-fitur asalnya.
+
       ![histogram](https://github.com/user-attachments/assets/8faea733-d84a-40db-985d-dfc60f234d29)
 
     - Distribusi genre setelah penyesuaian menunjukkan jumlah sampel yang relatif seimbang per genre.
 
     ![distribution](https://github.com/user-attachments/assets/3477e03b-2b4b-4b8a-909e-b111add641ad)
 
-    - _Box plot_ digunakan untuk membandingkan distribusi fitur audio antar genre, menunjukkan pola yang berbeda untuk fitur seperti `instrumentalness` dan `speechiness`.
+    - _Box plot_ digunakan untuk membandingkan distribusi fitur audio antar genre, menunjukkan pola yang berbeda untuk fitur seperti `instrumentalness` dan `speechiness`. Mengingat dataset adalah fitur audio musik, outliers seringkali merepresentasikan variasi atau karakteristik unik yang valid dalam lagu atau genre tertentu, sehingga membersihkannya berpotensi menghilangkan informasi penting untuk klasifikasi.
 
     ![boxplot](https://github.com/user-attachments/assets/b8ef4f03-ad13-4d33-a4bc-3d17597e0c8b)
 
