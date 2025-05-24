@@ -299,7 +299,7 @@ Berdasarkan eksekusi kode:
 
 ### Perbandingan Model dan Pemilihan Model Terbaik
 
-Berdasarkan ringkasan perbandingan model yang disediakan dalam kode:
+Berdasarkan ringkasan perbandingan model:
 
 | Model          | Accuracy | F1 Score |
 | -------------- | -------- | -------- |
