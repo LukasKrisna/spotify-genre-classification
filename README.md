@@ -43,7 +43,7 @@ Dataset yang digunakan dalam proyek ini adalah "Dataset of Songs in Spotify" yan
 - **Sumber Data:** [https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify/data](https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify/data)
 - **Informasi Awal Dataset:**
   - Dataset awal `genres_v2.csv` memiliki 42305 baris dan 22 kolom.
-  - Fitur-fitur mencakup aspek numerik dari audio dan informasi kategorikal tentang lagu dan genre.
+  - Fitur-fitur mencakup aspek numerik dari audio dan informasi kategorikal tentang lagu dan genre (_Trap_, _Techno_, _Techhouse_, _Trance_, _Psytrance_, _Dark Trap_, _DnB_ (_drums and bass_), _Hardstyle_, _Underground Rap_, _Trap Metal_, _Emo_, _Rap_, _RnB_, _Pop_ dan _Hiphop_.).
 
 ### Deskripsi Variabel
 
