@@ -243,14 +243,22 @@ Evaluasi model dilakukan untuk membandingkan kinerja Random Forest dan Neural Ne
 
 - **Akurasi (_Accuracy_):** Mengukur proporsi prediksi yang benar dari total prediksi. Dihitung sebagai:
   <br>
+  <br>
+  <br>
   $$\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}$$
+  <br>
+  <br>
   <br>
   Dimana TP = True Positives, TN = True Negatives, FP = False Positives, FN = False Negatives. Metrik ini baik ketika kelas-kelas seimbang.
 - **F1-Score:** Merupakan rata-rata harmonik dari _Precision_ dan _Recall_. Ini adalah metrik yang baik ketika ada ketidakseimbangan kelas atau ketika penting untuk menyeimbangkan antara _Precision_ dan _Recall_. F1-score tertimbang menghitung metrik untuk setiap label, dan menemukan rata-rata mereka yang ditimbang oleh dukungan (jumlah instance sebenarnya untuk setiap label).
   <br>
+  <br>
+  <br>
   $$\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}$$
   $$\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}$$
   $$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+  <br>
+  <br>
   <br>
 - **Confusion Matrix:** Tabel yang memvisualisasikan kinerja model klasifikasi. Baris mewakili kelas aktual dan kolom mewakili kelas yang diprediksi. Ini memberikan detail tentang kesalahan klasifikasi antar kelas.
 
