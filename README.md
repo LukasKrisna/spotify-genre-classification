@@ -122,7 +122,7 @@ Tahapan ini mencakup semua langkah transformasi data yang dilakukan untuk menyia
     ```python
     columns_to_drop = ["type", "id", "uri", "track_href", "analysis_url",
                       "song_name", "Unnamed: 0", "title", "duration_ms", "time_signature"]
-    df = data.drop(columns_to_drop, axis=1) # 'data' adalah DataFrame awal
+    df = data.drop(columns_to_drop, axis=1)
     ```
 
 2.  **Penanganan Genre dan Ketidakseimbangan Kelas:**
@@ -137,8 +137,8 @@ Tahapan ini mencakup semua langkah transformasi data yang dilakukan untuk menyia
       genre_mapping = {
           "Trap Metal": "Rap",
           "Underground Rap": "Rap",
-          "Emo": "Rap", # Catatan: Pemetaan Emo ke Rap mungkin perlu justifikasi lebih lanjut berdasarkan karakteristik audio.
-          "RnB": "Rap", # Catatan: Pemetaan RnB ke Rap mungkin perlu justifikasi lebih lanjut.
+          "Emo": "Rap",
+          "RnB": "Rap",
           "Hiphop": "Rap",
           "Dark Trap": "Rap"
       }
@@ -352,5 +352,5 @@ Proyek ini menunjukkan kelayakan penggunaan _machine learning_ untuk klasifikasi
 ## Referensi
 
 1.  Sijbesma, D. (2024). _The Sound of Success? Predicting a song's popularity using acoustic features and artist familiarity from the Spotify API_ (Master's Thesis). Utrecht University, Department of Information and Computing Sciences. Diperoleh dari [https://studenttheses.uu.nl/bitstream/handle/20.500.12932/47974/Thesis%20-%20ADE%20-%20David%20Sijbesma.pdf?sequence=1](https://studenttheses.uu.nl/bitstream/handle/20.500.12932/47974/Thesis%20-%20ADE%20-%20David%20Sijbesma.pdf?sequence=1)
-2.  Fiqri, M., Lizen, F. B. S., & Ikrom, M. (2025). Implementation of Supervised Learning Algorithm on Spotify Music Genre Classification. _IJATIS: Indonesian Journal of Applied Technology and Innovation Science_, _2_(1), 7-12. https://doi.org/10.57152/ijatis.v2i1.1102
+2.  Fiqri, M., Lizen, F. B. S., & Ikrom, M. (2025). Implementation of Supervised Learning Algorithm on Spotify Music Genre Classification. _IJATIS: Indonesian Journal of Applied Technology and Innovation Science_, _2_(1), 7-12. https://doi.org/10.57152/ijatis.v2i1.1123
 3.  Dicoding Indonesia. (n.d.). _Machine Learning Terapan_. Dicoding Academy. Diakses pada 26 Mei 2025, dari [https://www.dicoding.com/academies/319-machine-learning-terapan](https://www.dicoding.com/academies/319-machine-learning-terapan)
