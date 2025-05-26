@@ -42,146 +42,170 @@ Dataset yang digunakan dalam proyek ini adalah "Dataset of Songs in Spotify" yan
 
 - **Sumber Data:** [https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify/data](https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify/data)
 - **Informasi Awal Dataset:**
-  - Dataset awal `genres_v2.csv` memiliki 42305 baris dan 22 kolom.
-  - Fitur-fitur mencakup aspek numerik dari audio dan informasi kategorikal tentang lagu dan genre (_Trap_, _Techno_, _Techhouse_, _Trance_, _Psytrance_, _Dark Trap_, _DnB_ (_drums and bass_), _Hardstyle_, _Underground Rap_, _Trap Metal_, _Emo_, _Rap_, _RnB_, _Pop_ dan _Hiphop_.).
+  - Dataset awal terdiri dari 42.305 entri lagu dan memiliki 22 fitur/kolom.
+  - Fitur-fitur ini mencakup berbagai aspek audio numerik, informasi kategorikal tentang lagu, dan metadata lainnya.
+  - Jenis genre awal yang teridentifikasi dalam dataset meliputi _Trap_, _Techno_, _Techhouse_, _Trance_, _Psytrance_, _Dark Trap_, _DnB_ (_drums and bass_), _Hardstyle_, _Underground Rap_, _Trap Metal_, _Emo_, _Rap_, _RnB_, _Pop_, dan _Hiphop_.
 
-### Deskripsi Variabel
+### Deskripsi Variabel (Fitur Asli dari `genres_v2.csv`)
 
-Setelah pembersihan awal dan pemilihan fitur, variabel-variabel utama yang digunakan untuk pemodelan adalah sebagai berikut:
+Berikut adalah deskripsi dari seluruh 22 variabel awal yang terdapat dalam dataset:
 
-| Variabel           | Keterangan                                                                                                                                                                                                                                                                                |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `danceability`     | Menggambarkan seberapa cocok sebuah lagu untuk menari berdasarkan kombinasi elemen musik termasuk tempo, stabilitas ritme, kekuatan ketukan, dan keteraturan keseluruhan. Nilai 0.0 paling tidak bisa ditarikan dan 1.0 paling bisa ditarikan.                                            |
-| `energy`           | Merupakan ukuran persepsi dari intensitas dan aktivitas. Biasanya, trek yang energik terasa cepat, keras, dan berisik. Nilai dari 0.0 hingga 1.0.                                                                                                                                         |
-| `key`              | Kunci keseluruhan dari trek. Direpresentasikan dalam notasi Pitch Class standar (misalnya 0 = C, 1 = C♯/D♭, 2 = D, dst.).                                                                                                                                                                 |
-| `loudness`         | Kekerasan keseluruhan sebuah trek dalam desibel (dB). Nilai biasanya berkisar antara -60 dan 0 db.                                                                                                                                                                                        |
-| `mode`             | Mode (mayor atau minor) dari sebuah trek. Mayor direpresentasikan oleh 1 dan minor oleh 0.                                                                                                                                                                                                |
-| `speechiness`      | Mendeteksi keberadaan kata-kata yang diucapkan dalam sebuah trek. Semakin eksklusif rekaman itu mirip ucapan (misalnya acara bincang-bincang, buku audio, puisi), semakin mendekati 1.0 nilai atributnya.                                                                                 |
-| `acousticness`     | Ukuran kepercayaan dari 0.0 hingga 1.0 apakah trek tersebut akustik.                                                                                                                                                                                                                      |
-| `instrumentalness` | Memprediksi apakah sebuah trek tidak mengandung vokal. Suara "Ooh" dan "aah" dianggap instrumental dalam konteks ini. Semakin mendekati 1.0 nilai instrumentalness, semakin besar kemungkinan trek tersebut tidak mengandung konten vokal.                                                |
-| `liveness`         | Mendeteksi keberadaan audiens dalam rekaman. Nilai liveness yang lebih tinggi menunjukkan kemungkinan yang meningkat bahwa trek tersebut dibawakan secara langsung.                                                                                                                       |
-| `valence`          | Ukuran dari 0.0 hingga 1.0 yang menggambarkan positivitas musik yang disampaikan oleh sebuah trek. Trek dengan valensi tinggi terdengar lebih positif (misalnya bahagia, ceria, euforia), sedangkan trek dengan valensi rendah terdengar lebih negatif (misalnya sedih, tertekan, marah). |
-| `tempo`            | Perkiraan tempo keseluruhan sebuah trek dalam ketukan per menit (BPM).                                                                                                                                                                                                                    |
-| `genre`            | Genre musik dari lagu tersebut (variabel target).                                                                                                                                                                                                                                         |
+| Variabel           | Keterangan                                                                                                                                                                                                                                                                                | Status Penggunaan dalam Proyek |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `danceability`     | Menggambarkan seberapa cocok sebuah lagu untuk menari berdasarkan kombinasi elemen musik termasuk tempo, stabilitas ritme, kekuatan ketukan, dan keteraturan keseluruhan. Nilai 0.0 paling tidak bisa ditarikan dan 1.0 paling bisa ditarikan.                                            | Digunakan                      |
+| `energy`           | Merupakan ukuran persepsi dari intensitas dan aktivitas. Biasanya, trek yang energik terasa cepat, keras, dan berisik. Nilai dari 0.0 hingga 1.0.                                                                                                                                         | Digunakan                      |
+| `key`              | Kunci nada keseluruhan dari trek. Direpresentasikan dalam notasi Pitch Class standar (misalnya 0 = C, 1 = C♯/D♭, 2 = D, dst.).                                                                                                                                                            | Digunakan                      |
+| `loudness`         | Kekerasan keseluruhan sebuah trek dalam desibel (dB). Nilai biasanya berkisar antara -60 dan 0 db.                                                                                                                                                                                        | Digunakan                      |
+| `mode`             | Mode (mayor atau minor) dari sebuah trek. Mayor direpresentasikan oleh 1 dan minor oleh 0.                                                                                                                                                                                                | Digunakan                      |
+| `speechiness`      | Mendeteksi keberadaan kata-kata yang diucapkan dalam sebuah trek. Semakin eksklusif rekaman itu mirip ucapan (misalnya acara bincang-bincang, buku audio, puisi), semakin mendekati 1.0 nilai atributnya.                                                                                 | Digunakan                      |
+| `acousticness`     | Ukuran kepercayaan dari 0.0 hingga 1.0 apakah trek tersebut akustik.                                                                                                                                                                                                                      | Digunakan                      |
+| `instrumentalness` | Memprediksi apakah sebuah trek tidak mengandung vokal. Suara "Ooh" dan "aah" dianggap instrumental dalam konteks ini. Semakin mendekati 1.0 nilai instrumentalness, semakin besar kemungkinan trek tersebut tidak mengandung konten vokal.                                                | Digunakan                      |
+| `liveness`         | Mendeteksi keberadaan audiens dalam rekaman. Nilai liveness yang lebih tinggi menunjukkan kemungkinan yang meningkat bahwa trek tersebut dibawakan secara langsung.                                                                                                                       | Digunakan                      |
+| `valence`          | Ukuran dari 0.0 hingga 1.0 yang menggambarkan positivitas musik yang disampaikan oleh sebuah trek. Trek dengan valensi tinggi terdengar lebih positif (misalnya bahagia, ceria, euforia), sedangkan trek dengan valensi rendah terdengar lebih negatif (misalnya sedih, tertekan, marah). | Digunakan                      |
+| `tempo`            | Perkiraan tempo keseluruhan sebuah trek dalam ketukan per menit (BPM).                                                                                                                                                                                                                    | Digunakan                      |
+| `genre`            | Genre musik dari lagu tersebut.                                                                                                                                                                                                                                                           | Variabel Target                |
+| `duration_ms`      | Durasi lagu dalam milidetik.                                                                                                                                                                                                                                                              | Dihapus                        |
+| `time_signature`   | Perkiraan birama keseluruhan suatu lintasan. Birama adalah konvensi notasi untuk menentukan berapa banyak ketukan dalam setiap bar (atau ukuran).                                                                                                                                         | Dihapus                        |
+| `type`             | Tipe objek Spotify (misalnya, "audio_features").                                                                                                                                                                                                                                          | Dihapus                        |
+| `id`               | ID unik Spotify untuk trek.                                                                                                                                                                                                                                                               | Dihapus                        |
+| `uri`              | URI Spotify untuk trek.                                                                                                                                                                                                                                                                   | Dihapus                        |
+| `track_href`       | Tautan API web ke detail lengkap trek.                                                                                                                                                                                                                                                    | Dihapus                        |
+| `analysis_url`     | URL ke analisis audio Spotify untuk trek tersebut.                                                                                                                                                                                                                                        | Dihapus                        |
+| `song_name`        | Nama lagu.                                                                                                                                                                                                                                                                                | Dihapus                        |
+| `Unnamed: 0`       | Kolom indeks tambahan yang mungkin dihasilkan saat membaca file CSV, biasanya tidak mengandung informasi fitur yang relevan.                                                                                                                                                              | Dihapus                        |
+| `title`            | Judul lagu.                                                                                                                                                                                                                                                                               | Dihapus                        |
 
-### Exploratory Data Analysis (EDA)
+### Exploratory Data Analysis (EDA) untuk Memahami Karakteristik Data
 
-Tahapan EDA yang dilakukan meliputi:
+EDA dilakukan untuk memahami lebih dalam karakteristik dataset yang akan digunakan. Tahapan ini meliputi:
 
-1.  **Pemeriksaan Missing Values:** Dataset diperiksa untuk nilai null, dan tidak ditemukan nilai null yang signifikan yang memerlukan imputasi kompleks setelah penghapusan kolom awal.
+1.  **Pemeriksaan Missing Values Awal:**
+    Dataset diperiksa untuk nilai null pada tahap awal. Berdasarkan analisis pada notebook, setelah pemuatan data awal, tidak ditemukan nilai null yang signifikan yang memerlukan imputasi kompleks pada fitur-fitur yang dipertimbangkan untuk analisis lebih lanjut.
 
-```python
-data.isnull().sum()
-```
+    ```python
+    data.isnull().sum()
+    ```
 
-2.  **Penghapusan Kolom Tidak Relevan:** Kolom seperti `type`, `id`, `uri`, `track_href`, `analysis_url`, `song_name`, `Unnamed: 0`, `title`, `duration_ms`, dan `time_signature` dihapus karena tidak relevan untuk pemodelan fitur audio.
+2.  **Visualisasi Distribusi Fitur Numerik:**
+    Histogram digunakan untuk melihat distribusi masing-masing fitur audio utama. Visualisasi ini membantu memahami bagaimana nilai-nilai fitur seperti `danceability`, `energy`, `speechiness`, `acousticness`, dan `instrumentalness` tersebar. Banyak fitur seperti `speechiness`, `acousticness`, dan `instrumentalness`.
 
-```python
-columns_to_drop = ["type", "id", "uri", "track_href", "analysis_url",
-                  "song_name", "Unnamed: 0", "title", "duration_ms", "time_signature"]
-df = data.drop(columns_to_drop, axis=1)
-```
+    ![histogram](https://github.com/user-attachments/assets/dcd2873a-e4d0-4ced-9f41-ed8634f48343)
 
-3.  **Penanganan Ketidakseimbangan Kelas dan Konsolidasi Genre:**
-    - Genre "Pop" dihapus karena jumlahnya yang dominan dapat menyebabkan bias pada model dan sifatnya yang terlalu luas dapat mengganggu pembelajaran fitur pembeda genre lain yang lebih spesifik.
-    - Beberapa sub-genre seperti "Trap Metal", "Underground Rap", "Emo", "RnB", "Hiphop", dan "Dark Trap" dipetakan ke dalam genre "Rap" yang lebih umum untuk menyederhanakan dan mengkonsolidasikan kelas.
-    - Dilakukan _downsampling_ pada genre "Rap" dengan mengambil sampel acak sebanyak 3000 lagu untuk menyeimbangkan distribusi kelas dengan genre lainnya.
+3.  **Distribusi Genre:**
+    Distribusi genre dianalisis untuk melihat jumlah sampel per kategori genre. Ini penting untuk memahami potensi ketidakseimbangan kelas sebelum dilakukan penyeimbangan lebih lanjut.
 
-```python
-df = df[df['genre'] != "Pop"].reset_index(drop=True)
-```
+    ![distribution](https://github.com/user-attachments/assets/e4bee705-8d69-4fee-bbbf-f64a28b8aa34)
 
-```python
-genre_mapping = {
-    "Trap Metal": "Rap",
-    "Underground Rap": "Rap",
-    "Emo": "Rap",
-    "RnB": "Rap",
-    "Hiphop": "Rap",
-    "Dark Trap": "Rap"
-}
-df['genre'] = df['genre'].replace(genre_mapping)
-```
+4.  **Perbandingan Fitur Antar Genre dengan Box Plot:**
+    _Box plot_ digunakan untuk membandingkan distribusi fitur audio kunci antar genre. Ini membantu mengidentifikasi apakah ada fitur tertentu yang menunjukkan pola berbeda secara signifikan antar genre, yang bisa menjadi prediktor baik.
 
-```python
-rap_genre = df[df['genre'] == 'Rap'].sample(3000, random_state=42)
-other_genre = df[df['genre'] != 'Rap']
-df = pd.concat([rap_genre, other_genre]).reset_index(drop=True)
-```
+    ![boxplot](https://github.com/user-attachments/assets/1eb123c0-6bad-4181-8306-261a42cb0592)
+    _Catatan: Outlier pada fitur audio musik seringkali merepresentasikan variasi atau karakteristik unik yang valid, sehingga tidak selalu dihapus._
 
-4.  **Feature Engineering:** Empat fitur baru dibuat dengan mengalikan pasangan fitur yang sudah ada untuk menangkap interaksi potensial:
-
-```python
-df['energy_danceability'] = df['energy'] * df['danceability']
-df['acousticness_instrumentalness'] = df['acousticness'] * df['instrumentalness']
-df['loudness_speechiness'] = df['loudness'] * df['speechiness']
-df['tempo_energy'] = df['tempo'] * df['energy']
-```
-
-5.  **Visualisasi Distribusi Fitur:**
-
-    - Histogram digunakan untuk melihat distribusi masing-masing fitur numerik. Banyak fitur seperti `speechiness`, `acousticness`, dan `instrumentalness` menunjukkan distribusi yang condong ke kanan (_right-skewed_), menunjukkan mayoritas lagu memiliki nilai rendah pada fitur-fitur ini, sementara fitur seperti danceability, energy, dan loudness menunjukkan distribusi yang lebih simetris atau sedikit condong. Fitur-fitur baru yang diciptakan, seperti energy_danceability, umumnya mencerminkan karakteristik distribusi dari fitur-fitur asalnya.
-
-      ![histogram](https://github.com/user-attachments/assets/8faea733-d84a-40db-985d-dfc60f234d29)
-
-    - Distribusi genre setelah penyesuaian menunjukkan jumlah sampel yang relatif seimbang per genre.
-
-    ![distribution](https://github.com/user-attachments/assets/3477e03b-2b4b-4b8a-909e-b111add641ad)
-
-    - _Box plot_ digunakan untuk membandingkan distribusi fitur audio antar genre, menunjukkan pola yang berbeda untuk fitur seperti `instrumentalness` dan `speechiness`. Mengingat dataset adalah fitur audio musik, outliers seringkali merepresentasikan variasi atau karakteristik unik yang valid dalam lagu atau genre tertentu, sehingga membersihkannya berpotensi menghilangkan informasi penting untuk klasifikasi.
-
-    ![boxplot](https://github.com/user-attachments/assets/b8ef4f03-ad13-4d33-a4bc-3d17597e0c8b)
-
-6.  **Analisis Korelasi:**
-
-    - _Pair plot_ digunakan untuk memvisualisasikan hubungan antar fitur kunci (`danceability`, `energy`, `loudness`, `speechiness`) dan bagaimana mereka berinteraksi per genre. `speechiness` tampak menjadi pembeda kuat untuk genre Rap dan Trap.
-      ![pair-plot](https://github.com/user-attachments/assets/c2d802a2-4361-4cab-b8cd-9b9857393cfd)
-
-    - _Heatmap_ korelasi menunjukkan hubungan linear antar semua fitur numerik.
-
-    ![heatmap](https://github.com/user-attachments/assets/66a6eb2d-0c79-43eb-8f75-a3568b9ff718)
-
-    - Diagram batang korelasi fitur dengan variabel target (genre yang telah di-encode) menunjukkan `tempo` memiliki korelasi negatif terkuat, sementara `energy` memiliki korelasi positif terkuat.
-
-    ![diagram](https://github.com/user-attachments/assets/288ae65b-3ff5-4f60-8992-804f4be55c59)
+5.  **Analisis Korelasi Antar Fitur:**
+    - _Pair plot_ digunakan untuk memvisualisasikan hubungan dua pasang fitur kunci dan bagaimana mereka berinteraksi per genre.
+      ![pair-plot](https://github.com/user-attachments/assets/8fe297fb-a1c9-4836-b0fb-8d4707a26b23)
+    - _Heatmap_ korelasi menunjukkan hubungan linear antar semua fitur numerik yang dipertimbangkan.
+      ![heatmap](https://github.com/user-attachments/assets/7ac7ef4a-4f8c-4906-8660-920e481a89f4)
+    - Diagram batang korelasi fitur dengan variabel target menunjukkan fitur mana yang memiliki korelasi linear terkuat dengan genre.
+      ![diagram]![alt text](image.png)
 
 ## Data Preparation
 
-Setelah EDA, beberapa langkah persiapan data dilakukan untuk menyiapkan data untuk pemodelan:
+Tahapan ini mencakup semua langkah transformasi data yang dilakukan untuk menyiapkan dataset agar sesuai untuk proses pemodelan _machine learning_. Proses ini dilakukan secara berurutan sesuai dengan implementasi pada notebook.
 
-1.  **Pemisahan Fitur dan Target:** Dataset dibagi menjadi matriks fitur `X` (semua kolom kecuali `genre`) dan vektor target `y` (kolom `genre`).
+1.  **Penghapusan Kolom Tidak Relevan:**
+    Kolom-kolom yang tidak memberikan informasi prediktif untuk genre musik atau bersifat metadata (seperti ID, tautan, nama lagu) dihapus.
 
-```python
-X = df.drop('genre', axis=1)
-y = df['genre']
-```
+    - Alasan: Mengurangi dimensi data, menghilangkan noise, dan fokus pada fitur audio yang relevan.
 
-2.  **Pembagian Data Latih dan Uji (_Train-Test Split_):** Data `X` dan `y` dibagi menjadi set pelatihan (80%) dan set pengujian (20%) menggunakan `train_test_split` dengan `random_state=42` untuk reproduktifitas.
-    - Alasan: Pembagian ini penting untuk mengevaluasi kinerja model pada data yang tidak terlihat selama pelatihan, sehingga memberikan estimasi yang lebih realistis tentang bagaimana model akan berkinerja pada data baru.
+    ```python
+    columns_to_drop = ["type", "id", "uri", "track_href", "analysis_url",
+                      "song_name", "Unnamed: 0", "title", "duration_ms", "time_signature"]
+    df = data.drop(columns_to_drop, axis=1) # 'data' adalah DataFrame awal
+    ```
 
-```python
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-```
+2.  **Penanganan Genre dan Ketidakseimbangan Kelas:**
 
-3.  **Penskalaan Fitur (_Feature Scaling_):** Fitur numerik pada data latih dan uji diskalakan menggunakan `MinMaxScaler`. Scaler ini di-_fit_ hanya pada data latih (`X_train_scaled`) dan kemudian digunakan untuk mentransformasi data latih dan data uji (`X_test_scaled`).
-    - Alasan: Penskalaan membawa semua fitur ke rentang yang sama (0 hingga 1), yang penting untuk algoritma yang sensitif terhadap skala fitur seperti Neural Networks (terutama dengan regularisasi atau optimasi berbasis gradien) dan juga dapat membantu kinerja Random Forest dalam beberapa kasus. Ini mencegah fitur dengan nilai absolut yang lebih besar mendominasi proses pembelajaran.
+    - **Penghapusan Genre "Pop":** Genre "Pop" dihapus karena jumlahnya yang sangat dominan berpotensi menyebabkan bias pada model dan sifatnya yang terlalu luas dapat mengaburkan fitur pembeda genre lain.
+      ```python
+      df = df[df['genre'] != "Pop"].reset_index(drop=True)
+      ```
+    - **Konsolidasi Sub-genre ke Genre "Rap":** Beberapa sub-genre yang memiliki karakteristik serupa atau jumlah sampel kecil dipetakan ke kategori "Rap" yang lebih umum untuk menyederhanakan klasifikasi dan menguatkan kelas tersebut.
+      - Alasan: Mengurangi jumlah kelas target yang terlalu granular dan mengatasi masalah jumlah sampel yang sedikit pada beberapa sub-genre.
+      ```python
+      genre_mapping = {
+          "Trap Metal": "Rap",
+          "Underground Rap": "Rap",
+          "Emo": "Rap", # Catatan: Pemetaan Emo ke Rap mungkin perlu justifikasi lebih lanjut berdasarkan karakteristik audio.
+          "RnB": "Rap", # Catatan: Pemetaan RnB ke Rap mungkin perlu justifikasi lebih lanjut.
+          "Hiphop": "Rap",
+          "Dark Trap": "Rap"
+      }
+      df['genre'] = df['genre'].replace(genre_mapping)
+      ```
+    - **Downsampling Genre "Rap":** Setelah konsolidasi, jika genre "Rap" masih terlalu dominan dibandingkan genre lain, dilakukan _downsampling_ dengan mengambil sampel acak sebanyak 3000 lagu.
+      - Alasan: Untuk menyeimbangkan distribusi kelas sehingga model tidak bias terhadap kelas mayoritas.
+      ```python
+      # Mengecek jumlah sebelum downsampling (contoh)
+      # print(df['genre'].value_counts())
+      rap_genre = df[df['genre'] == 'Rap'].sample(3000, random_state=42)
+      other_genre = df[df['genre'] != 'Rap']
+      df = pd.concat([rap_genre, other_genre]).reset_index(drop=True)
+      # Mengecek jumlah setelah downsampling (contoh)
+      # print(df['genre'].value_counts())
+      ```
 
-```python
-scaler = MinMaxScaler()
+3.  **Feature Engineering:**
+    Empat fitur baru dibuat dengan mengalikan pasangan fitur yang sudah ada untuk mencoba menangkap interaksi antar fitur tersebut yang mungkin relevan untuk membedakan genre.
 
-X_train_scaled = scaler.fit_transform(X_train)
+    - Alasan: Menciptakan fitur baru yang berpotensi memiliki daya prediktif lebih tinggi daripada fitur individual.
 
-X_test_scaled = scaler.transform(X_test)
-```
+    ```python
+    df['energy_danceability'] = df['energy'] * df['danceability']
+    df['acousticness_instrumentalness'] = df['acousticness'] * df['instrumentalness']
+    df['loudness_speechiness'] = df['loudness'] * df['speechiness']
+    df['tempo_energy'] = df['tempo'] * df['energy']
+    ```
 
-4.  **Encoding Label Target (_Label Encoding_):** Label genre tekstual pada variabel target `y_train` dan `y_test` dikonversi menjadi representasi numerik menggunakan `LabelEncoder`. Encoder di-_fit_ pada `y_train` dan digunakan untuk mentransformasi `y_train` dan `y_test`.
+    _DataFrame `df` kini siap untuk tahap pemisahan fitur dan target._
+
+4.  **Pemisahan Fitur dan Target:**
+    Dataset `df` (yang telah melalui semua tahapan di atas) dibagi menjadi matriks fitur `X` (semua kolom kecuali `genre`) dan vektor target `y` (kolom `genre`).
+
+    ```python
+    X = df.drop('genre', axis=1)
+    y = df['genre']
+    ```
+
+5.  **Pembagian Data Latih dan Uji (_Train-Test Split_):**
+    Data `X` dan `y` dibagi menjadi set pelatihan (80%) dan set pengujian (20%) menggunakan `train_test_split` dengan `random_state=42` untuk reproduktifitas.
+
+    - Alasan: Penting untuk mengevaluasi kinerja model pada data yang tidak terlihat selama pelatihan, memberikan estimasi yang lebih realistis tentang bagaimana model akan berkinerja pada data baru.
+
+    ```python
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    ```
+
+6.  **Penskalaan Fitur (_Feature Scaling_):**
+    Fitur numerik pada data latih dan uji diskalakan menggunakan `MinMaxScaler`. Scaler ini di-_fit_ hanya pada data latih (`X_train`) dan kemudian digunakan untuk mentransformasi data latih (`X_train_scaled`) dan data uji (`X_test_scaled`).
+
+    - Alasan: Penskalaan membawa semua fitur ke rentang yang sama (0 hingga 1), penting untuk algoritma yang sensitif terhadap skala fitur seperti Neural Networks dan dapat membantu kinerja Random Forest. Ini mencegah fitur dengan nilai absolut besar mendominasi proses pembelajaran.
+
+    ```python
+    scaler = MinMaxScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    ```
+
+7.  **Encoding Label Target (_Label Encoding_):**
+    Label genre tekstual pada variabel target `y_train` dan `y_test` dikonversi menjadi representasi numerik menggunakan `LabelEncoder`. Encoder di-_fit_ pada `y_train` dan digunakan untuk mentransformasi `y_train` dan `y_test`.
     - Alasan: Algoritma _machine learning_ umumnya memerlukan input numerik, sehingga label kategori perlu diubah menjadi angka.
-
-```python
-le = LabelEncoder()
-y_train_encoded = le.fit_transform(y_train)
-y_test_encoded = le.transform(y_test)
-```
+    ```python
+    le = LabelEncoder()
+    y_train_encoded = le.fit_transform(y_train)
+    y_test_encoded = le.transform(y_test)
+    ```
 
 ## Modeling
 
@@ -317,7 +341,7 @@ Berdasarkan ringkasan perbandingan model:
 
 Proyek ini berhasil mengembangkan dan mengevaluasi dua model _machine learning_ untuk klasifikasi genre musik Spotify berdasarkan fitur audio.
 
-1. Proses _Exploratory Data Analysis_ (EDA) dan _Data Preparation_ sangat penting, termasuk penanganan ketidakseimbangan kelas, _feature engineering_, dan penskalaan fitur, untuk menyiapkan data yang optimal untuk pemodelan.
+1. Proses _Exploratory Data Analysis_ (EDA) dalam tahap _Data Understanding_ membantu memahami karakteristik awal data, sementara tahap _Data Preparation_ sangat penting untuk transformasi data, termasuk penanganan ketidakseimbangan kelas, _feature engineering_, dan penskalaan fitur, untuk menyiapkan data yang optimal untuk pemodelan.
 2. Model Random Forest mencapai akurasi sekitar 89.5% dan F1-score sekitar 89.5%.
 3. Model Neural Network mencapai akurasi sekitar 88.1% dan F1-score sekitar 88.1%.
 4. Berdasarkan perbandingan metrik evaluasi (Akurasi dan F1-Score) serta analisis _confusion matrix_, model **Random Forest** menunjukkan kinerja yang sedikit lebih unggul dan lebih konsisten dibandingkan Neural Network untuk dataset dan konfigurasi yang digunakan dalam proyek ini.
@@ -328,5 +352,5 @@ Proyek ini menunjukkan kelayakan penggunaan _machine learning_ untuk klasifikasi
 ## Referensi
 
 1.  Sijbesma, D. (2024). _The Sound of Success? Predicting a song's popularity using acoustic features and artist familiarity from the Spotify API_ (Master's Thesis). Utrecht University, Department of Information and Computing Sciences. Diperoleh dari [https://studenttheses.uu.nl/bitstream/handle/20.500.12932/47974/Thesis%20-%20ADE%20-%20David%20Sijbesma.pdf?sequence=1](https://studenttheses.uu.nl/bitstream/handle/20.500.12932/47974/Thesis%20-%20ADE%20-%20David%20Sijbesma.pdf?sequence=1)
-2.  Fiqri, M., Lizen, F. B. S., & Ikrom, M. (2025). Implementation of Supervised Learning Algorithm on Spotify Music Genre Classification. _IJATIS: Indonesian Journal of Applied Technology and Innovation Science_, _2_(1), 7-12. Diperoleh dari [https://doi.org/10.57152/ijatis.v2i1.1123](https://doi.org/10.57152/ijatis.v2i1.1123)
-3.  Dicoding Indonesia. (n.d.). _Machine Learning Terapan_. Dicoding Academy. Diakses pada 24 Mei 2025, dari [https://www.dicoding.com/academies/319-machine-learning-terapan](https://www.dicoding.com/academies/319-machine-learning-terapan)
+2.  Fiqri, M., Lizen, F. B. S., & Ikrom, M. (2025). Implementation of Supervised Learning Algorithm on Spotify Music Genre Classification. _IJATIS: Indonesian Journal of Applied Technology and Innovation Science_, _2_(1), 7-12. https://doi.org/10.57152/ijatis.v2i1.1102
+3.  Dicoding Indonesia. (n.d.). _Machine Learning Terapan_. Dicoding Academy. Diakses pada 26 Mei 2025, dari [https://www.dicoding.com/academies/319-machine-learning-terapan](https://www.dicoding.com/academies/319-machine-learning-terapan)
