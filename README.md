@@ -108,7 +108,7 @@ EDA dilakukan untuk memahami lebih dalam karakteristik dataset yang akan digunak
     - _Heatmap_ korelasi menunjukkan hubungan linear antar semua fitur numerik yang dipertimbangkan.
       ![heatmap](https://github.com/user-attachments/assets/7ac7ef4a-4f8c-4906-8660-920e481a89f4)
     - Diagram batang korelasi fitur dengan variabel target menunjukkan fitur mana yang memiliki korelasi linear terkuat dengan genre.
-      ![diagram]![alt text](image.png)
+      ![diagram](https://raw.githubusercontent.com/LukasKrisna/spotify-genre-classification/master/image.png)
 
 ## Data Preparation
 
